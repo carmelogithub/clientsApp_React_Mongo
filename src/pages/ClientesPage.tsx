@@ -18,7 +18,7 @@ const loadClients = async () => {
     return(
         <IonPage>
              <IonContent>
-                <h2>Tabla de clientes</h2>
+                <h2>Tabla de clientes modificada cuando estoy en tailwind-ui</h2>
           <table>
             <thead>
               <tr>
