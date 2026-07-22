@@ -27,7 +27,7 @@ export class ClientService {
   }
 
   static async deleteClient(id:number) {
-    const res = await fetch("http://localhost:3000/clients/delete"+id); //endpoint de la API
-    return await res.json();
+    const res = await fetch("http://localhost:3000/clients/delete/"+id,{method:"delete"}); //endpoint de la API
+    //return await res.json();
   }
 } //cierra clase

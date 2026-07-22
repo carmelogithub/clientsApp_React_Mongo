@@ -19,6 +19,15 @@ export default function ClientesPage() {
     }).format(value);
   };
    
+  const confirmDelete=async (id:number)=>{
+    const confirm =window.confirm('¿Desea eliminar este cliente?');
+    if(confirm){
+      await ClientService.deleteClient(id);
+       loadClients();
+    }
+    
+  };
+
   useIonViewDidEnter(() => {
     loadClients();
   }, []);
@@ -26,7 +35,7 @@ export default function ClientesPage() {
   return (
     <IonPage>
       <IonContent>
-        <h2>Tabla de clientes</h2>
+        <h2 className="text-5xl font-bold text-blue-600 text-center mt-5">Tabla de clientes</h2>
         <table>
           <thead>
             <tr>
@@ -35,6 +44,7 @@ export default function ClientesPage() {
               <th>Ciudad</th>
               <th>Facturación</th>
               <th>Acciones</th>
+              <th>Cuidado</th>
             </tr>
           </thead>
 
@@ -46,6 +56,7 @@ export default function ClientesPage() {
                 <td>{cliente.ciudad}</td>
                 <td className="text-end">{formatCurrency(cliente.facturacion)}</td>
                 <td><IonButton onClick={()=>{history.push('/editar',cliente)}}>Editar</IonButton></td>
+                <td><IonButton onClick={()=>{confirmDelete(cliente._id)}}>Eliminar</IonButton></td>
               </tr>
             ))}
           </tbody>
