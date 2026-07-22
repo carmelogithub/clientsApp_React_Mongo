@@ -32,6 +32,7 @@ export default function ClientesPage() {
     loadClients();
   }, []);
 
+<<<<<<< HEAD
   return (
     <IonPage>
       <IonContent>
@@ -47,6 +48,20 @@ export default function ClientesPage() {
               <th>Cuidado</th>
             </tr>
           </thead>
+=======
+    return(
+        <IonPage>
+             <IonContent>
+                <h2>Tabla de clientes modificada cuando estoy en tailwind-ui</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Facturación</th>
+              </tr>
+            </thead>
+>>>>>>> tailwind-ui
 
           <tbody>
             {clients.map((cliente) => (
