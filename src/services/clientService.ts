@@ -7,10 +7,14 @@ export class ClientService {
   }
 
   static async addClient(client:Client) {
+    const token=localStorage.getItem('token');
     const res = await fetch("http://localhost:3000/clients/new",{
       method:"post",
       body:JSON.stringify(client),
-      headers:{"content-type":"application/json"} 
+      headers:{
+        "content-type":"application/json",
+        "Authorization":`Bearer ${token}`
+      } 
 
     }); //endpoint de la API
     return await res.json();
