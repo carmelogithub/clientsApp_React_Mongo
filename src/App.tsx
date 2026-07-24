@@ -36,10 +36,14 @@ import ClientesPage from "./pages/ClientesPage";
 import ClientesAddPage from "./pages/ClientesAddPage";
 import ClientesEditPage from "./pages/ClientesEditPage";
 import LoginPage from "./pages/LoginPage";
+import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute";
+import UsersAddPage from "./pages/UsersAddPage";
 
 setupIonicReact();
 
 const App: React.FC = () => (
+  
   <IonApp>
     
     <IonReactRouter>
@@ -47,6 +51,10 @@ const App: React.FC = () => (
         
       <Route exact path="/login">
         <LoginPage/>
+        </Route>
+        
+        <Route exact path="/registro">
+        <UsersAddPage/>
         </Route>
 
         <Route exact path="/clients">
@@ -57,9 +65,15 @@ const App: React.FC = () => (
           <ClientesAddPage />
         </Route>
         
-        <Route exact path="/editar">
+        {/* <Route exact path="/editar">
           <ClientesEditPage/>
-        </Route> 
+        </Route>  */}
+
+         <ProtectedRoute
+          path="/editar"
+          component={ClientesEditPage}
+          exact
+        />
 
         <Route exact path="/home">
           <Home />
